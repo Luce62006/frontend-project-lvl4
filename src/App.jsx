@@ -22,7 +22,7 @@ function AuthProvider({ children }) {
     localStorage.removeItem('userId');
     setLoggedIn(false);
   };
-
+  //  const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
   return (
     <AuthContext.Provider value={{ loggedIn, logIn, logOut }}>
       {children}
@@ -66,7 +66,7 @@ function App() {
           <h1 className="text-center mt-5 mb-4"> Войти</h1>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<PrivatePage/>} />
+            <Route path="/home" element={<PrivatePage />} />
             <Route
               path="/private"
               element={(

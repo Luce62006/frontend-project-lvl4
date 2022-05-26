@@ -34,7 +34,7 @@ function Login() {
       axios.post(routes.loginPath(), values)
         .then((response) => {
           console.log(response);
-          let from = location.state?.from?.pathname || '/';
+          const { from } = location.state?.from?.pathname || '/';
           auth.logIn();
           navigate(from, { replace: true });
           localStorage.setItem('userId', JSON.stringify(response.data));
@@ -58,7 +58,7 @@ function Login() {
       className="container-md "
     >
       <Container
-        className="  justify-content-md-center"
+        className="justify-content-md-center"
         style={{
           width: '12rem',
           marginBlock: 50,
