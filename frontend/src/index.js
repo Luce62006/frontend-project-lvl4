@@ -1,20 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from 'react-router-dom';
 import './index.css';
 import Login from './components/login.jsx';
+import ErrorPage from './error-page';
 
-const  App = () => (
-    <div className="container">
-            <div className="form-wrapper">
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Login/>,
+        errorElement: <ErrorPage />,
+    },
+]);
 
-                <Login />
-
-            </div>
-        </div>
-)
-
-export default App;
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+        <RouterProvider router={router} />
+    </React.StrictMode>,
+);
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+
+
+
+
+
